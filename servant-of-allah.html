@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Servant of Allah - Islamic knowledge, podcasts, nasheeds, and community resources">
+    <link rel="shortcut icon" href="Assets/SOA-logo.jpg">
+    <title>Servant of Allah | Islamic Resources & Community</title>
+    <link rel="shortcut icon" href="Assets/kaaba-logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #57c5b6;
+            --accent: #f8b400;
+            --light: #f9f9f9;
+            --dark: #000000;
+            --text: #333;
+            --arabic: 'Amiri', serif;
+            --sans: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .arabic {
+            font-family: var(--arabic);
+            direction: rtl;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: floralwhite;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            background: url('Assets/mosque-bg.jpg') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: floralwhite;
+            color: var(--dark);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .media-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .media-content {
+            padding: 1.5rem;
+        }
+
+        .media-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .media-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .media-content .btn {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .photo img{
+             display: inline-flex ;
+              width: 370px;
+              background: floralwhite;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+              
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+
+        .photo h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .audio-player audio {
+            width: 100%;
+        }
+
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* New Announcements Section */
+        .announcements {
+            background: var(--primary);
+            color: whitesmoke;
+            padding: 2rem 0;
+        }
+
+        .announcement-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .announcement-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .announcement-title i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .announcement-title h3 {
+            font-size: 1.2rem;
+        }
+
+        .announcement-content {
+            flex: 1;
+            margin: 0 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .announcement-content marquee {
+            padding-top: 5px;
+        }
+
+        /* Programs Section */
+        .programs-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .program-card {
+            display: flex;
+            background: whitesmoke;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .program-date {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+        }
+
+        .program-date .day {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .program-date .month {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .program-details {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .program-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .program-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Publications Section */
+        .publication-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .publication-cover {
+            height: 250px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .publication-cover img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .publication-info {
+            padding: 1.5rem;
+        }
+
+        .publication-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .publication-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Leadership Section */
+        .leader-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-img {
+            height: 250px;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .leader-card:hover .leader-img img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+            padding: 1.5rem;
+        }
+
+        .leader-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .leader-info h4 {
+            color: midnightblue;
+            margin-bottom: 0.3rem;
+        }
+
+        .leader-info p {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: darkgoldenrod;
+        }
+
+        /* Counter Section */
+        .counter-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .counter-item {
+            padding: 1.5rem;
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .counter-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: whitesmoke;
+            padding: 3rem 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .announcement-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .announcement-content {
+                margin: 1rem 0;
+                width: 100%;
+            }
+
+            .program-card {
+                flex-direction: column;
+            }
+
+            .program-date {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1rem;
+            }
+
+            .program-date .day,
+            .program-date .month {
+                display: inline-block;
+            }
+        }
+
+        #hikmah-img {
+            width: 26px;
+        }
+
+        .social-media {
+            display: flex;
+            display: inline;
+            justify-content: center;
+
+        }
+
+        .social-media:hover {
+            background-color: rgb(0, 174, 255);
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="Assets/soa image-3.png" alt="Servant of Allah Logo">
+                    <div class="logo-text">Servant of Allah</div>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <div class="dropdown">
+                        <a href="#about">About <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a
+                                href="https://docs.google.com/document/d/1OosAk_MJQaxY9ka2XVWqwZ_oFwHZ9hV8gLLMnbElrDk/edit?usp=sharing">Our
+                                History</a>
+                            <a
+                                href="https://docs.google.com/document/d/1OosAk_MJQaxY9ka2XVWqwZ_oFwHZ9hV8gLLMnbElrDk/edit?usp=sharing">Mission
+                                & Vision</a>
+                            <a href="#leadership">Leadership</a>
+                            <a href="#branches">Branches</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#programs">Programs <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#weekly">Weekly Programs</a>
+                            <a href="#monthly">Monthly Programs</a>
+                            <a href="#annual">Annual Programs</a>
+                            <a href="#special">Special Events</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#programs">Publications<i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#books">Books</a>
+                            <a href="#magazine">Magazines</a>
+                            <a href="">Articles</a>
+                            <a href="">Libraries</a>
+                            <a href="#blogs">Articles and Blogs</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#media">Media<i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#podcasts">Podcasts</a>
+                            <a href="#monthly">Gallery</a>
+
+                        </div>
+                    </div>
+
+                    <a href="#Contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Announcements Bar -->
+    <section class="announcements">
+        <div class="container announcement-container">
+            <div class="announcement-title">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Announcements</h3>
+            </div>
+            <div class="announcement-content">
+                <marquee> 🕌 Eid ul-Adha Mubarak - Taqwabbal Allahu Minna wa Minkum | 📢 We are currently at the starting point, and In Sha Allah, our organizational activities will grow and expand in the future | 📚 Download and read the important books which are in the publication section and explore the links of the magazine section </marquee>
+            </div>
+            <a href="" class="btn btn-outline" style="border-color: whitesmoke; color: aliceblue;">View All</a>
+        </div>
+    </section>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Seeking Knowledge, Serving the Ummah</h1>
+                <p>Join us on a journey of spiritual growth and Islamic learning through our programs, publications, and
+                    community resources.</p>
+                <div>
+                    <a href="#programs" class="btn">Our Programs</a>
+                    <a href="#about" class="btn btn-outline">About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-number" data-count="4">0</div>
+                    <div class="counter-text">Years of Service</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="2">0</div>
+                    <div class="counter-text">Weekly Programs</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="5">0</div>
+                    <div class="counter-text">Active Members</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number" data-count="0">0</div>
+                    <div class="counter-text">Branches Nationwide</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Engage with our diverse range of Islamic educational and community programs</p>
+            </div>
+
+            <div class="programs-tabs">
+                <button class="tab-btn active" data-tab="weekly">Weekly</button>
+                <button class="tab-btn" data-tab="monthly">Monthly</button>
+                <button class="tab-btn" data-tab="annual">Annual</button>
+                <button class="tab-btn" data-tab="special">Special</button>
+            </div>
+
+            <div class="tab-content active" id="weekly">
+                <div class="program-card">
+                    <div class="program-date">
+                        <span class="day">date</span>
+                        <span class="month">month</span>
+                    </div>
+                    <div class="program-details">
+                        <h3>COMMING SOON...</h3>
+                        <div class="program-meta">
+                            <span><i class="far fa-clock"></i> Every Friday, 7:30 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Masjid</span>
+                        </div>
+                        <p>COMMING SOON...</p>
+                        <br>
+                        <a href="" class="btn">Join Now</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-date">
+                        <span class="day">date</span>
+                        <span class="month">month</span>
+                    </div>
+                    <div class="program-details">
+                        <h3>COMMING SOON...</h3>
+                        <div class="program-meta">
+                            <span><i class="far fa-clock"></i> Every Monday, 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i>Masjid </span>
+                        </div>
+                        <p>COMMING SOON...</p>
+                        <br>
+                        <a href="" class="btn">Join Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="monthly">
+                <div class="program-card">
+                    <div class="program-date">
+                        <span class="day">date</span>
+                        <span class="month">month</span>
+                    </div>
+                    <div class="program-details">
+                        <h3>COMMING SOON...</h3>
+                        <div class="program-meta">
+                            <span><i class="far fa-clock"></i> Last Friday of month, 8:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Community Hall</span>
+                        </div>
+                        <p>COMMING SOON...</p>
+                        <br>
+                        <a href="" class="btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="#" class="btn">View All Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications" style="background: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Publications</h2>
+                <p>Explore our collection of Islamic books, articles, and research materials</p>
+            </div>
+            
+            <div id="magazines" class="media-content" style="margin-top: 2rem; text-align: center;">
+                <h2 style="color: purple;">Books</h2>
+                <br>
+            <div class="media-grid">
+                <div id="books" class="publication-card">
+                    <div class="publication-cover">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="KITĀB AT-TAWHĪD">
+                    </div>
+                    <div class="publication-info">
+                        <h3>The Explanation of KITĀB AT-TAWHĪD</h3>
+                        <div class="publication-meta">
+                            <span>by Shykh Salih b. Al-Fawzan (Hafizahullah)</span>
+                            <span> | </span>
+                            <span>Main Book Writer: Muhammad Ibn Abdul-Wahhaab (Rahimahullah)</span>
+                            <span> | </span>
+                        </div>
+                        <p>The point here, is whoever understands this book will understand the majority of issues of
+                            tawḥīd that relate to how we are to worship Allah alone.</p>
+                        <br>
+                        <a href="https://www.troid.org/wp-content/uploads/pdf/MR_kitaabattawheed.pdf" class="btn">
+                            Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <div class="publication-cover">
+                        <img src="data:image/jpeg;base64,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"
+                            alt="Muslim Youth Guide Cover">
+                    </div>
+                    <div class="publication-info">
+                        <h3>FATAWA ARKAN-UL-ISLAM</h3>
+                        <div class="publication-meta">
+                            <span>By Shaikh Mohammad bin Salih Al-'Uthaimeen (Rahimahullah)</span>
+                            <span> | </span>
+                        </div>
+                        <p>"FATAWA ARKANUL ISLAM," or "Islamic Verdicts on the Pillars of Islam," is a two-volume book
+                            by Shaykh Muhammad Saalih al-Uthaimeen, offering Islamic rulings and explanations on the
+                            five pillars of Islam.</p>
+                        <br>
+                        <a href="https://d1.islamhouse.com/data/en/ih_books/single2/en_Fatawar_Arkanul_Islam_English_Final.pdf"
+                            class="btn">Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <div class="publication-cover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgxviehLB3hstQjjwZtWylgYyac65haO4AQ&s"
+                            alt="Ar-Rahik-Al-Makhtum">
+                    </div>
+                    <div class="publication-info">
+                        <h3>Ar-Raheeq Al-Makhtum(THE SEALED NECTAR)</h3>
+                        <div class="publication-meta">
+                            <span>by Saifur Rahman al-Mubarakpuri (Rahimahullah)</span>
+                            <span> | </span>
+                            <span>Memoirs of the Noble Prophet [pbuh]</span>
+                            <span> | </span>
+                        </div>
+                        <p>The various strategies and stages of Muhammad ﷺ Dawah are described, including various
+                            battles including Badr, Uhud, the conquest of Mecca, the Farewell Hajj, and all the
+                            historical events leading up to Muhammad ﷺ's death. This biography chronicles the events of
+                            Muhammad ﷺ at different stages of his life.</p>
+                        <br>
+                        <a href="https://ia802905.us.archive.org/22/items/the-sealed-nectar-ar-raheeq-al-makhtum-english/Ar-Raheeq_Al-Makhtum_(The_Sealed_Nectar)_English_(www.TheChoice.one).pdf"
+                            class="btn">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="" class="btn">View All Publications</a>
+            </div>
+
+            <div id="magazine" class="media-content" style="margin-top: 2rem; text-align: center;">
+                <h2 style="color: purple;">Magazines</h2>
+                <br>
+                <a href="https://at-tahreek.com/"><h3 class="btn">Monthly At-Tahreek</h3></a>
+                <a href="https://al-itisam.com/"><h3 class="btn">Monthly Al-Itisam</h3></a>
+                <a href="https://tawheederdak.com/"><h3 class="btn">Tawheeder Dak</h3></a>
+                <a href="https://weeklyarafat.com/home"><h3 class="btn">Weekly Arafat</h3></a>
+                <a href="https://jamiyat.org.bd/masik-tarjumanul-hadith/"><h3 class="btn">Monthly-Tarjumanul-Hadith</h3></a>
+            </div>
+
+            <div id="blogs" class="media-content" style="margin-top: 2rem; text-align: center;">
+                <h3>Blogs and Articles</h3>
+                <p>Explore insightful blogs and articles that delve into Islamic teachings, history, and contemporary
+                    issues from an authentic perspective.</p>
+                <a href="https://islamhouse.com/read/en/" class="btn" style="margin-top: 1rem;">Explore</a>
+            </div>
+            <div id="#blog" class="media-content" style="margin-top: 2rem; text-align: center;">
+                <h3>Research Materials</h3>
+                <p>IN SHA ALLAH COMMING SOON. . . . .</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section" id="leadership">
+        <div class="container">
+            <div class="section-title">
+                <h2>Central Committee</h2>
+                <p>Session (2025-26)</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <img src="Assets/ifaz.jpg" alt="Ifaz">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Miftahul Mashfique Ifaz</h3>
+                        <h4>Convener</h4>
+                        <p>Undergraduate student in Computer Science and Engineering at Eastern University, Dhaka,
+                            Bangladesh.</p>
+                        <dIv>
+                            <a href="https://www.facebook.com/masfique.ifaz"><img class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=118490&format=png" alt="Facebook"></a>
+                            <a href="https://www.linkedin.com/in/mifaz/"><img class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=WjAk6U0YveCI&format=png" alt="LinkedIn"></a>
+                        </dIv>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <img src="Assets/ishmam.jpg" alt="Ishmam">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Ishmamul Hoque Bhuiyan</h3>
+                        <h4>Joint Convener</h4>
+                        <p>Undergraduate student in Computer Science and Engineering at United International University,
+                            Dhaka, Bangladesh.</p>
+                        <dIv>
+                            <a href="https://www.facebook.com/ishmamB"><img class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=118490&format=png" alt="Facebook"></a>
+                            <a href="https://www.linkedin.com/in/ishmamb/"><img class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=WjAk6U0YveCI&format=png" alt="LinkedIn"></a>
+                        </dIv>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <img src="Assets/saim.jpg" alt="Saim">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Mazharul Hoq Bhuiyan Saim</h3>
+                        <h4>Key Co-ordinator</h4>
+                        <p>Undergraduate student in Geography and Environment at Pabna University of Science and
+                            Technology, Pabna, Bangladesh.</p>
+                        <dIv>
+                            <a href="https://www.facebook.com/mhb.saim.27"><img class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=118490&format=png" alt="Facebook"></a>
+                            <a href="https://www.linkedin.com/in/mazharul-hoq-bhuiyan-saim-32b420355/"><img
+                                    class="social-media"
+                                    src="https://img.icons8.com/?size=48&id=WjAk6U0YveCI&format=png" alt="LinkedIn"></a>
+                        </dIv>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="" class="btn">Meet Full Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section (Existing content) -->
+    <section class="section" id="media">
+        <div class="container">
+            <div class="section-title">
+                <h2>Media</h2>
+            </div>
+
+            <div class="media-card" id="podcasts">
+                <div class="video-container">
+                    <iframe width="650" height="375" src="https://www.youtube.com/embed/YG1TWhzapjM?si=4a92P4qifPGQPJoN"
+                        title="SOA Podcast 1" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="media-content">
+                    <h3>SOA Podcast | Episode 1</h3>
+                    <p>In this episode, we discuss the importance of sincerity in worship and how to purify our
+                        intentions in all that we do.</p>
+                    <div class="btn">Listen on YouTube</div>
+                </div>
+            </div>
+            <div class="media-card" style="margin-top: 2rem;">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/es3QYaqQNJg?si=HUE-OzZIJ_hxREjl"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="media-content">
+                    <h3>SOA Podcast | Episode 2</h3>
+                    <p>Our monthly discussion covering current affairs from an Islamic perspective and how Muslims
+                        should respond
+                        to challenges.</p>
+                    <a href="https://youtu.be/es3QYaqQNJg?si=qbOZhUhx6aVqToN0">
+                        <div class="btn">Listen on YouTube</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="photo" style="margin-top: 2rem;">
+                <h3>Gallery</h3>
+                <h5>Our Photo Gallery</h5>
+                <br>
+               <img src="Assets/soa members.jpg" alt=""> 
+               <img src="Assets/soa meeting.jpg" alt="">
+               <img src="Assets/soa meeting-1.jpg" alt="">
+               <img src="Assets/eid soa.jpg" alt="">
+               <img src="Assets/SOA img-1.jpg" alt="">
+               <img src="Assets/SOA img-2.png" alt="">
+               <img src="Assets/video meeting.jpg" alt="">
+               <img src="Assets/video meeting-1.png" alt="">
+               <img src="Assets/iftaar.jpg" alt="">
+               <img src="Assets/iftaar-2.jpg" alt="">
+               <img src="Assets/meeting-1.jpg" alt="">
+               <img src="Assets/meeting-2.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Ummah Section -->
+    <section class="section" id="ummah" style="background: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Concept of Ummah</h2>
+            </div>
+
+            <div class="iframe-container">
+                <iframe width="900px" height="500" src="https://en.wikipedia.org/wiki/Ummah" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Servant of Allah</h3>
+                    <p>An Islamic organization dedicated to spreading authentic knowledge,
+                        fostering spiritual growth, and serving the Muslim Ummah.</p>
+                    <div class="social-links">
+                        <a href=""><img title="Facebook" id="hikmah-img"
+                                src="https://img.icons8.com/?size=52&id=118504&format=png" alt=""></a>
+                        <a href="#"><img title="Youtube" id="hikmah-img"
+                                src="https://img.icons8.com/?size=48&id=Aq10GU126KJX&format=png" alt=""></a>
+                        <a href="https://hikmah.net/@remembrance"> <img title="Hikmah" id="hikmah-img"
+                                src="Assets/hikmah-logo.jpg" alt="Hikmah-social-network"></a>
+                        <a
+                            href="https://www.instagram.com/the.remembranceofallah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                                title="Instagram" id="hikmah-img"
+                                src="https://img.icons8.com/?size=32&id=44907&format=png" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#media">Media</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#weekly">Weekly Programs</a></li>
+                        <li><a href="#monthly">Monthly Programs</a></li>
+                        <li><a href="#annual">Annual Programs</a></li>
+                        <li><a href="#special">Special Events</a></li>
+                        <li><a href="#">Youth Activities</a></li>
+                        <li><a href="#">Women's Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 id="Contact">Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Central Office: 97/Shikor, Middhabari Road, Godown Quarter, Railgate, Feni Sadar, Feni</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+880 1832 400484</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>mhsaim@outlook.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Open: Sat-Thu, 9:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Servant of Allah. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter-number');
+        const speed = 200;
+
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Start counter when section is in view
+        const counterSection = document.querySelector('.counter-section');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.unobserve(counterSection);
+            }
+        });
+
+        observer.observe(counterSection);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
