@@ -84,6 +84,43 @@
             color: var(--accent);
         }
 
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* Mobile menu button */
+    .mobile-menu-btn {
+        display: block;
+}
+
+.btn, .tab-btn, .dropdown > a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn {
+    min-width: 120px; /* Ensure buttons are large enough for fingers */
+    padding: 0.8rem 1.5rem;
+}
+
+/* Increase tap targets for mobile */
+@media (max-width: 768px) {
+    a, button {
+        min-height: 44px; /* Recommended minimum touch target size */
+        min-width: 44px;
+    }
+    
+    .dropdown-content a {
+        padding: 1rem;
+    }
+} 
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -764,43 +801,7 @@
             background-color: floralwhite;
             border-radius: 100px;
         }
-
-        /* Mobile Menu Styles */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    /* Mobile menu button */
-    .mobile-menu-btn {
-        display: block;
-}
-
-.btn, .tab-btn, .dropdown > a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.btn {
-    min-width: 120px; /* Ensure buttons are large enough for fingers */
-    padding: 0.8rem 1.5rem;
-}
-
-/* Increase tap targets for mobile */
-@media (max-width: 768px) {
-    a, button {
-        min-height: 44px; /* Recommended minimum touch target size */
-        min-width: 44px;
-    }
-    
-    .dropdown-content a {
-        padding: 1rem;
-    }
-}    
+        
     </style>
 </head>
 
