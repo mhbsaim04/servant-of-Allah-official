@@ -83,44 +83,7 @@
         .logo-text span {
             color: var(--accent);
         }
-
-/* Mobile Menu Styles */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    /* Mobile menu button */
-    .mobile-menu-btn {
-        display: block;
-}
-
-.btn, .tab-btn, .dropdown > a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.btn {
-    min-width: 120px; /* Ensure buttons are large enough for fingers */
-    padding: 0.8rem 1.5rem;
-}
-
-/* Increase tap targets for mobile */
-@media (max-width: 768px) {
-    a, button {
-        min-height: 44px; /* Recommended minimum touch target size */
-        min-width: 44px;
-    }
-    
-    .dropdown-content a {
-        padding: 1rem;
-    }
-} 
-
+        
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -813,10 +776,7 @@
                     <img src="Assets/soa image-3.png" alt="Servant of Allah Logo">
                     <div class="logo-text">Servant of Allah</div>
                 </div>
-              <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>  
+              
                 <div class="nav-links">
                     <a href="#home">Home</a>
                     <div class="dropdown">
